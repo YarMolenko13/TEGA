@@ -1,0 +1,154 @@
+//====================================================================================================
+.footer {
+	background: #003566;
+	padding-top: 30px;
+	padding-bottom: 80px;
+	// .footer__content
+	&__content {
+	}
+	// .footer__row
+	&__row {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		flex: 0 1 100%;
+	}
+	// .footer__top
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		padding: 0px 10px;
+		margin-bottom: 9px;
+		&:after {
+			content: "";
+			width: 100%;
+			height: 3px;
+			position: absolute;
+			bottom: -9px;
+			left: 0;
+			background: #cfcfcf;
+		}
+	}
+	// .footer__logo
+	&__logo {
+	}
+	// .footer__arrow
+	&__arrow {
+		display: flex;
+		justify-content: center;
+		flex: 0 1 50%;
+		background-color: rgba(0, 0, 0, 0);
+		transition: all 0.3s ease 0s;
+		&:hover {
+			transform: scale(1.1);
+		}
+		@media (max-width: 426px) {
+			display: none;
+		}
+	}
+	// .footer__bottom
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 10px;
+		margin-top: 17px;
+	}
+}
+.logo-header {
+	// .logo-header__img
+	&__img {
+	}
+	// .logo-header__text
+	&__text {
+	}
+	// .logo-header__title
+	&__title {
+	}
+	// .logo-header__subtitle
+	&__subtitle {
+	}
+}
+.bottom-footer {
+	// .bottom-footer__items
+	&__items {
+		a {
+			font-weight: 500;
+			font-size: 23px;
+			line-height: 28px;
+			color: #ffffff;
+		}
+		@media (max-width: 426px) {
+			a {
+				font-size: 13px;
+				line-height: 16px;
+				display: block;
+				margin-bottom: 12px;
+			}
+		}
+		@media (max-width: 378px) {
+			a {
+				display: block;
+				font-size: 11.5px;
+				line-height: 15px;
+				margin-right: 5px;
+			}
+			flex: 0 0 56%;
+			width: 100%;
+		}
+	}
+	// .bottom-footer__right
+	&__right {
+		p {
+			font-weight: 500;
+			font-size: 23px;
+			line-height: 28px;
+			color: #fff;
+			span {
+				font-weight: 400;
+			}
+		}
+		img {
+			display: block;
+			margin-top: 10px;
+			background-color: #fff;
+		}
+		@media (max-width: 426px) {
+			p {
+				&:first-child {
+					text-align: center;
+				}
+				display: flex;
+				flex-direction: column;
+				font-size: 13px;
+				line-height: 14px;
+				span {
+					font-size: 12px;
+					line-height: 13px;
+				}
+				margin-bottom: 6px;
+			}
+			picture {
+				img {
+					width: 147px;
+					height: 20.22px;
+				}
+			}
+		}
+		@media (max-width: 378px) {
+			p {
+				font-size: 11px;
+				line-height: 13px;
+				span {
+					font-size: 10px;
+					line-height: 12px;
+				}
+			}
+			flex: 0 0 44%;
+			width: 100%;
+		}
+	}
+}
+
+//====================================================================================================
