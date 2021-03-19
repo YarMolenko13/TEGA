@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/fullstackShop
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
