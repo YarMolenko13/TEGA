@@ -243,6 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
          i.addEventListener('click', () => {
             headerMenu.classList.remove('_active')
             menuIcon.classList.remove('_active')
+            body.classList.remove('_lock')
          })
       })
    }
@@ -334,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
          // Optional parameters
          centeredSlides: true,
          setWrapperSize: true,
+         allowTouchMove: !(neededImgSrcs(cartNum).length === 1),
          // If we need pagination
          pagination: {
             el: '.swiper-pagination',
@@ -350,11 +352,11 @@ document.addEventListener('DOMContentLoaded', function () {
             el: '.swiper-pagination',
          },
 
-         breakpoints: {
-            1300: {
-               allowTouchMove: false,
-            },
-         },
+         // breakpoints: {
+         //    1300: {
+         //       allowTouchMove: false,
+         //    },
+         // },
       })
 
       document.querySelector('.popup').addEventListener('click', (e) => {
