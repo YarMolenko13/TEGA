@@ -361,7 +361,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       document.querySelector('.popup').addEventListener('click', (e) => {
          if (e.target.classList.contains('popup')) {
-            document.querySelectorAll('.swiper-slide').forEach((item) => item.remove())
+            document.querySelectorAll('.swiper-slide').forEach((item) => {
+               item.remove()
+            })
+            swiper.destroy()
          }
       })
 
@@ -369,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function () {
          document.querySelectorAll('.swiper-slide').forEach((item) => item.remove())
          popup.classList.remove('_active')
          body.classList.remove('_lock')
-         // swiper.destroy()
+         swiper.destroy()
       })
    }
 })
