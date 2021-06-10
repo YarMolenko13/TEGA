@@ -162,198 +162,216 @@ da.init();
 function email_test(input) {
 	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
-'use strict';
+'use strict'
 
 document.addEventListener('DOMContentLoaded', function () {
+   // links
+   const startPageBtns = document.querySelectorAll('.start-page__btn')
 
-	// links
-	const startPageBtns = document.querySelectorAll('.start-page__btn');
+   for (let i = 0; i <= startPageBtns.length; i++) {
+      $(startPageBtns[i]).on('click', function () {
+         let a = i + 2
+         $('html,body').animate({ scrollTop: $('#a' + a).offset().top + 'px' }, { duration: 1e3 })
+      })
+   }
 
-	for (let i = 0; i <= startPageBtns.length; i++) {
-		$(startPageBtns[i]).on('click', function () {
-			let a = i + 2;
-			console.log('a' + a);
-			$('html,body').animate({ scrollTop: $('#a' + a).offset().top + "px" }, { duration: 1E3 });
-		});
-	}
+   const headerNavItems = document.querySelectorAll('.header__nav-item')
 
-	const headerNavItems = document.querySelectorAll('.header__nav-item');
+   for (let i = 0; i <= headerNavItems.length; i++) {
+      if (headerNavItems[0].firstChild.innerHTML == 'На главную') {
+         $(headerNavItems[i]).on('click', function () {
+            let a = i + 1
+            $('html,body').animate({ scrollTop: $('#a' + a).offset().top + 'px' }, { duration: 1e3 })
+         })
+      } else {
+         $(headerNavItems[i]).on('click', function () {
+            let a = i + 2
 
-	for (let i = 0; i <= headerNavItems.length; i++) {
-		if (headerNavItems[0].firstChild.innerHTML == 'На главную') {
-			$(headerNavItems[i]).on('click', function () {
-				let a = i + 1;
-				console.log('a' + a);
-				$('html,body').animate({ scrollTop: $('#a' + a).offset().top + "px" }, { duration: 1E3 });
-			});
-		} else {
-			$(headerNavItems[i]).on('click', function () {
-				let a = i + 2;
-				console.log('a' + a);
-				$('html,body').animate({ scrollTop: $('#a' + a).offset().top + "px" }, { duration: 1E3 });
-			});
-		}
-	}
+            $('html,body').animate({ scrollTop: $('#a' + a).offset().top + 'px' }, { duration: 1e3 })
+         })
+      }
+   }
 
-	const arrowDownF = document.querySelector('.start-fazis__arrowd');
-	const arrowDown = document.querySelector('.start-page__arrowd');
-	$(arrowDownF).on('click', function () {
-		$('html,body').animate({ scrollTop: $('#a2').offset().top + "px" }, { duration: 1E3 });
-	});
-	$(arrowDown).on('click', function () {
-		$('html,body').animate({ scrollTop: $('#a2').offset().top + "px" }, { duration: 1E3 });
-	});
+   const footerLinks = document.querySelectorAll('.bottom-footer__items ul li a')
+   for (let i = 0; i <= footerLinks.length; i++) {
+      if (footerLinks[0].firstChild.innerHTML == 'На главную') {
+         $(footerLinks[i]).on('click', function () {
+            let a = i + 2
+            $('html,body').animate({ scrollTop: $('#a' + a).offset().top + 'px' }, { duration: 1e3 })
+         })
+      } else {
+         $(footerLinks[i]).on('click', function () {
+            let a = i + 1
+            $('html,body').animate({ scrollTop: $('#a' + a).offset().top + 'px' }, { duration: 1e3 })
+         })
+      }
+   }
 
+   $('.footer__arrow').on('click', function () {
+      $('html,body').animate({ scrollTop: 0 }, { duration: 1e3 })
+   })
 
-	const menuIcon = document.querySelector('.menu-icon');
-	const headerMenu = document.querySelector('.header-menu');
-	const menuActive = false;
-	const body = document.querySelector('body');
+   const arrowDownF = document.querySelector('.start-fazis__arrowd')
+   const arrowDown = document.querySelector('.start-page__arrowd')
+   const fazisLogoHeader = document.querySelector('.logo-header__logo')
+   $(arrowDownF).on('click', function () {
+      $('html,body').animate({ scrollTop: $('#a2').offset().top + 'px' }, { duration: 1e3 })
+   })
+   $(arrowDown).on('click', function () {
+      $('html,body').animate({ scrollTop: $('#a2').offset().top + 'px' }, { duration: 1e3 })
+   })
+   $(fazisLogoHeader).on('click', function () {
+      $('html,body').animate({ scrollTop: $('.header').offset().top + 'px' }, { duration: 1e3 })
+   })
 
-	menuIcon.addEventListener('click', function () {
-		headerMenu.classList.toggle('_active');
-		menuIcon.classList.toggle('_active');
-		if (headerMenu.classList.contains('_active')) {
-			body.classList.add('_lock');
-			// disableScroll()
-			// scrollTo(0, 0)
-			// alert('da')
-		} else {
-			body.classList.remove('_lock');
-			// document.style.overflow = 'hidden';
-			// enableScroll()
-		}
-	})
+   const menuIcon = document.querySelector('.menu-icon')
+   const headerMenu = document.querySelector('.header-menu')
+   const menuActive = false
+   const body = document.querySelector('body')
 
+   menuIcon.addEventListener('click', function () {
+      headerMenu.classList.toggle('_active')
+      menuIcon.classList.toggle('_active')
+      if (headerMenu.classList.contains('_active')) {
+         body.classList.add('_lock')
+      } else {
+         body.classList.remove('_lock')
+      }
+   })
+   if (document.documentElement.clientWidth <= 426) {
+      headerNavItems.forEach((i) => {
+         i.addEventListener('click', () => {
+            headerMenu.classList.remove('_active')
+            menuIcon.classList.remove('_active')
+         })
+      })
+   }
 
-	// const arrowdStart = document.querySelector('.start-page__arrowd');
-	// console.log(arrowdStart)
-	// arrowdStart.addEventListener('click', function () {
-	// 	let scrollInt = document.documentElement.clientHeight;
-	// 	scrollTo(0, scrollInt);
-	// })
+   const tags = document.querySelector('.switcher-page__tags')
 
+   tags.addEventListener('click', changeTag)
+   // tags.addEventListener('touchstart', changeTag())
 
-	const tags = document.querySelector('.switcher-page__tags');
+   function changeTag(e) {
+      const target = e.target
+      const targetIdTag = target.dataset.idTag
+      const oldTag = document.querySelector('.switcher-page__tag._active')
+      const choosenTag = tags.children[Number(targetIdTag) - 1]
+      const oldContent = document.querySelector('.switcher-page__content._active')
+      const content = document.querySelector('[data-id-cont$="' + targetIdTag + '"]')
 
-	tags.addEventListener('click', changeTag)
-	// tags.addEventListener('touchstart', changeTag())
+      if (oldTag.classList.contains('_active_l')) {
+         oldTag.classList.remove('_active_l')
+      }
+      if (oldTag.classList.contains('_active_r')) {
+         oldTag.classList.remove('_active_r')
+      }
+      oldTag.classList.remove('_active')
 
-	function changeTag(e) {
-		console.log(e.target)
+      choosenTag.classList.add('_active')
 
-		const target = e.target;
-		const targetIdTag = target.dataset.idTag;
-		const oldTag = document.querySelector('.switcher-page__tag._active');
-		const choosenTag = tags.children[Number(targetIdTag) - 1];
-		const oldContent = document.querySelector('.switcher-page__content._active')
-		const content = document.querySelector('[data-id-cont$="' + targetIdTag + '"]');
+      oldContent.classList.remove('_active')
+      content.classList.add('_active')
+   }
 
-		if (oldTag.classList.contains('_active_l')) {
-			oldTag.classList.remove('_active_l');
-		}
-		if (oldTag.classList.contains('_active_r')) {
-			oldTag.classList.remove('_active_r');
-		}
-		oldTag.classList.remove('_active');
+   const footerArrow = document.querySelector('.footer__arrow')
+   footerArrow.addEventListener('click', function () {
+      scrollTo(0, 0)
+   })
 
-		choosenTag.classList.add('_active');
+   // popup
 
-		oldContent.classList.remove('_active');
-		content.classList.add('_active');
-	}
+   const buttonCart = document.querySelectorAll('.item-carts__btn')
+   const popup = document.querySelector('.popup')
+   const close = document.querySelector('.popup__close')
 
+   buttonCart.forEach(function (i) {
+      let cartNum = i.dataset.cartNum
+      i.addEventListener('click', function (e) {
+         popup.classList.add('_active')
+         body.classList.add('_lock')
+         createSwiper(cartNum)
+      })
+   })
 
-	const footerArrow = document.querySelector('.footer__arrow');
-	footerArrow.addEventListener('click', function () {
-		scrollTo(0, 0);
-	})
+   function neededImgSrcs(cartNum) {
+      switch (Number(cartNum)) {
+         case 1:
+            return ['img/certificates/database.png']
+         case 2:
+            return ['img/certificates/bi1.png', 'img/certificates/bi2.png']
+         case 3:
+            return ['img/certificates/hp1.png', 'img/certificates/hp2.png']
+         case 4:
+            return ['img/certificates/essbase.png']
+         case 5:
+            return ['img/certificates/inf1.png']
+         case 6:
+            return [
+               'img/certificates/analyz1.png',
+               'img/certificates/analyz2.png',
+               'img/certificates/analyz3.png',
+               'img/certificates/analyz4.png',
+            ]
+      }
+   }
 
+   function createSwiper(cartNum) {
+      const sliderWrapper = document.querySelector('.swiper-wrapper')
 
-	// popup
+      neededImgSrcs(cartNum).forEach((src) => {
+         let slideDiv = document.createElement('div')
+         slideDiv.classList.add('swiper-slide')
 
-	const buttonCart = document.querySelectorAll('.item-carts__btn');
-	const popup = document.querySelector('.popup');
-	const close = document.querySelector('.popup__close');
+         let slideImg = document.createElement('img')
+         slideDiv.append(slideImg)
+         slideImg.src = src
 
-	buttonCart.forEach(function (i) {
-		i.addEventListener('click', function (e) {
-			console.log('popup activeted')
-			popup.classList.add('_active');
-			body.classList.add('_lock');
+         sliderWrapper.append(slideDiv)
+      })
 
-			let cartNum = e.target.dataset.cartNum;
-			console.log(cartNum)
+      const swiper = new Swiper('.swiper-container', {
+         // Optional parameters
+         centeredSlides: true,
+         setWrapperSize: true,
+         // If we need pagination
+         pagination: {
+            el: '.swiper-pagination',
+         },
 
-			startSwiper(cartNum);
-		})
-	})
+         // Navigation arrows
+         navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+         },
 
+         pagination: {
+            clickable: true,
+            el: '.swiper-pagination',
+         },
 
-	function startSwiper(cartNum) {
-		let imgSrcArray = []
-		if (cartNum == 1) {
-			imgSrcArray = [
-				"img/footerimg.png",
-				"img/footerimg.png",
-				"img/footerimg.png",
-				"img/footerimg.png",
-			]
-		}
+         breakpoints: {
+            1300: {
+               allowTouchMove: false,
+            },
+         },
+      })
 
-		createSwiper(imgSrcArray);
-	}
+      document.querySelector('.popup').addEventListener('click', (e) => {
+         if (e.target.classList.contains('popup')) {
+            document.querySelectorAll('.swiper-slide').forEach((item) => item.remove())
+         }
+      })
 
-	function createSwiper(srcStrings) {
-		const sliderWrapper = document.querySelector('.swiper-wrapper');
-
-		srcStrings.forEach(function (src) {
-			let slideDiv = document.createElement('div');
-			slideDiv.classList.add('swiper-slide');
-
-			let slideImg = document.createElement('img');
-			slideDiv.append(slideImg)
-			slideImg.src = src;
-
-			sliderWrapper.append(slideDiv);
-		})
-
-		const swiper = new Swiper('.swiper-container', {
-			// Optional parameters
-			centeredSlides: true,
-			setWrapperSize: true,
-			// If we need pagination
-			pagination: {
-				el: '.swiper-pagination',
-			},
-
-			// Navigation arrows
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-		});
-
-		close.addEventListener('click', function () {
-			popup.classList.remove('_active');
-			body.classList.remove('_lock');
-			destroySwiper();
-		})
-	}
-
-	function destroySwiper() {
-		// const sliderWrapper = document.querySelector('.swiper-wrapper');
-		// for (let i = 0; i <= sliderWrapper.children.length; i++) {
-		// 	console.log(sliderWrapper.children[0])
-		// 	sliderWrapper.children[i].remove();
-		// }
-		const slides = document.querySelectorAll('.swiper-slide');
-		slides.forEach(function (slide) {
-			console.log(slide)
-			slide.remove();
-		})
-	}
+      close.addEventListener('click', function () {
+         document.querySelectorAll('.swiper-slide').forEach((item) => item.remove())
+         popup.classList.remove('_active')
+         body.classList.remove('_lock')
+         // swiper.destroy()
+      })
+   }
 })
+
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
