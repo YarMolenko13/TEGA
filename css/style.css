@@ -1070,6 +1070,7 @@ body.ie ._ibg img {
   top: 18px;
   right: 10px;
   width: 30px;
+  padding: 10px;
   height: 18px;
   cursor: pointer;
 }
@@ -1264,12 +1265,36 @@ body.ie ._ibg img {
   margin-top: 17px;
 }
 
-.bottom-footer__items a {
+.bottom-footer__items li a {
   font-weight: 500;
   font-size: 23px;
   line-height: 28px;
   color: #ffffff;
   cursor: pointer;
+  position: relative;
+  width: auto;
+  display: inline-block;
+  border-bottom: 0;
+  padding-bottom: 3px;
+  margin-bottom: 7px;
+}
+
+.bottom-footer__items li a:after {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  content: '';
+  background-color: #fff;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.bottom-footer__items li a:hover:after {
+  opacity: 1;
 }
 
 .bottom-footer__right p {
@@ -1279,8 +1304,10 @@ body.ie ._ibg img {
   color: #fff;
 }
 
-.bottom-footer__right p span {
+.bottom-footer__right p a {
   font-weight: 400;
+  cursor: pointer;
+  color: #fff;
 }
 
 .bottom-footer__right img {
@@ -2332,11 +2359,16 @@ body.ie ._ibg img {
     display: none;
   }
 
-  .bottom-footer__items a {
+  .bottom-footer__items li a {
+    display: inline-block;
     font-size: 13px;
     line-height: 16px;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+  }
+
+  .bottom-footer__items li a:after {
+    display: none;
   }
 
   .bottom-footer__right p {
@@ -2534,7 +2566,7 @@ body.ie ._ibg img {
 
   .fazis-page__link {
     font-size: 18px;
-    padding: 12px 6px 15px 6px;
+    padding: 12px 15px 15px 15px;
   }
 
   .start-fazis__container {
@@ -2683,15 +2715,15 @@ body.ie ._ibg img {
 }
 
 @media (max-width: 378px) {
-  .bottom-footer__items {
+  .bottom-footer__items li {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 56%;
             flex: 0 0 56%;
     width: 100%;
   }
 
-  .bottom-footer__items a {
-    display: block;
+  .bottom-footer__items li a {
+    display: inline-block;
     font-size: 11.5px;
     line-height: 15px;
     margin-right: 5px;

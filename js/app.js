@@ -175,6 +175,12 @@ document.addEventListener('DOMContentLoaded', function () {
       })
    }
 
+   try {
+      document.querySelector('#arrowDownF').addEventListener('click', () => {
+         $('html,body').animate({ scrollTop: $('.footer').offset().top + 'px' }, { duration: 1e3 })
+      })
+   } catch (e) {}
+
    const headerNavItems = document.querySelectorAll('.header__nav-item')
 
    for (let i = 0; i <= headerNavItems.length; i++) {
@@ -196,12 +202,12 @@ document.addEventListener('DOMContentLoaded', function () {
    for (let i = 0; i <= footerLinks.length; i++) {
       if (footerLinks[0].firstChild.innerHTML == 'На главную') {
          $(footerLinks[i]).on('click', function () {
-            let a = i + 2
+            let a = i + 1
             $('html,body').animate({ scrollTop: $('#a' + a).offset().top + 'px' }, { duration: 1e3 })
          })
       } else {
          $(footerLinks[i]).on('click', function () {
-            let a = i + 1
+            let a = i + 2
             $('html,body').animate({ scrollTop: $('#a' + a).offset().top + 'px' }, { duration: 1e3 })
          })
       }
