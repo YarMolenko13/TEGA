@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
       })
    }
 
-   try {
-      document.querySelector('#arrowDownF').addEventListener('click', () => {
-         $('html,body').animate({ scrollTop: $('.footer').offset().top + 'px' }, { duration: 1e3 })
-      })
-   } catch (e) {}
+   // try {
+   //    document.querySelector('#arrowDownF').addEventListener('click', () => {
+   //       $('html,body').animate({ scrollTop: $('.footer').offset().top + 'px' }, { duration: 1e3 })
+   //    })
+   // } catch (e) {}
 
    const headerNavItems = document.querySelectorAll('.header__nav-item')
 

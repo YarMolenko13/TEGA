@@ -760,6 +760,7 @@ button {
       }
    }
    &__arrowd {
+      cursor: pointer;
       position: absolute;
       bottom: 84px;
       left: 50%;
@@ -926,7 +927,7 @@ button {
       margin-top: 2px;
       margin-right: 6px;
       @media (max-width: 426px) {
-         display: none;
+         font-size: 16px;
       }
       @media (max-width: 1025px) {
          font-size: 16px;
@@ -1053,11 +1054,14 @@ button {
 .swiper-pagination {
    left: 50% !important;
    transform: translateX(-50%);
-   bottom: 62px;
+   // bottom: 62px;
    display: flex;
    align-items: center;
+   justify-content: center;
+   align-content: center;
+   bottom: 10% !important;
    @media (max-width: 1400px) {
-      bottom: 6%;
+      bottom: 6% !important;
    }
 }
 .swiper-pagination-bullet {

@@ -118,9 +118,6 @@
          transform: rotate(45deg);
       }
    }
-   &__slider {
-      position: relative;
-   }
    &__body {
       background: #ffffff;
       width: 1170px;
@@ -154,8 +151,16 @@
          }
       }
    }
+   &__slider {
+      display: flex;
+      justify-content: center;
+      position: relative;
+   }
    &._active {
       display: flex;
    }
+}
+.swiper-container {
+   overflow: hidden;
 }
 //====================================================================================================

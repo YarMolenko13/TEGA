@@ -42,7 +42,8 @@ if (sliderScrollItems.length > 0) {
 		const sliderScroll = new Swiper(sliderScrollItem, {
 			direction: 'vertical',
 			slidesPerView: 'auto',
-			freeMode: true,
+			// freeMode: true,
+			spaceBetween: 400,
 			scrollbar: {
 				el: sliderScrollBar,
 				draggable: true,
