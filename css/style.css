@@ -2644,15 +2644,11 @@ body.ie ._ibg img {
     font-size: 12px;
     line-height: 14px;
     margin-bottom: 10px;
-    margin-left: 6px;
+    margin-left: 0px;
   }
 
   .base-fazis li:first-child {
     margin-bottom: 15px;
-  }
-
-  .base-fazis li picture {
-    display: none;
   }
 
   .base-fazis {
