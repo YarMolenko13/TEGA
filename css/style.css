@@ -2651,6 +2651,12 @@ body.ie ._ibg img {
     margin-bottom: 15px;
   }
 
+  .base-fazis li img {
+    margin-top: -4px;
+    height: 20px;
+    width: 20px;
+  }
+
   .base-fazis {
     padding: 55px 0;
   }
@@ -2661,7 +2667,11 @@ body.ie ._ibg img {
   }
 
   .funcs-fazis__num {
-    font-size: 16px;
+    font-size: 12px;
+    height: 18px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 18px;
+            flex: 0 0 18px;
   }
 
   .main-funcs {
