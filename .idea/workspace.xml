@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d43e5c0-a8e5-4cf2-aab3-fefde2b04b76" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/fazis.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-    </list>
+    <list default="true" id="5d43e5c0-a8e5-4cf2-aab3-fefde2b04b76" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +38,7 @@
       <updated>1626817306283</updated>
       <workItem from="1647442890057" duration="1055000" />
       <workItem from="1647444973775" duration="709000" />
-      <workItem from="1647673797435" duration="522000" />
+      <workItem from="1647673797435" duration="699000" />
     </task>
     <servers />
   </component>
